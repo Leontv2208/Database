@@ -3,5 +3,5 @@ project(Database)
 
 set(CMAKE_C_STANDARD 17)
 
-add_executable(Database banco_de_dados.c
+add_executable(Database verificador_database.c
 )
