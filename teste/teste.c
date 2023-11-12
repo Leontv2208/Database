@@ -44,33 +44,20 @@ int main(int argc, char** argv){
             fscanf(data, "%30c", User[i].nome);
         }
 
-//    while(1) {
-//
     for (int i = 0; i < N; ++i) {
         int j=0;
-
-        //Entrada de usuário e senha do prompt
-//        printf("Nome de Usuario: ");
-//        scanf("%s", &Entry.user);
-//        printf("Senha: ");
-//        scanf("%s", &Entry.password);
 
         //Inicia a contagem de tempo CPU
         start = clock();
 
         //Procura pelo nome de usuario e senha no banco de dados
-        while ((strcmp(User[j].login, /*Entry.user*/User[i].login) != 0 && strcmp(User[j].senha, /*Entry.password*/User[i].senha) != 0)&&(j<N)) {
+        while ((strcmp(User[j].login, User[i].login) != 0 && strcmp(User[j].senha, User[i].senha) != 0)&&(j<N)) {
             j++;
         }
-//        if (j < N) {
+
             printf("Bem vindo(a), %s\n", User[j].nome);
             end=clock();
             cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
             fprintf(time,"%s || %s || %s || %f\n", User[j].login, User[j].senha, User[j].nome, cpu_time_used );
-//        } else {
-//            printf("Nome de usuario ou senha incorretos\n\n");
-//            end=clock();
-//            cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-//        }
     }
 }
