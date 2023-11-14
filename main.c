@@ -19,25 +19,21 @@
 int main(int argc, char** argv){
     struct entrada Entry;
     struct usuario User[N];
-    FILE *data, *time;
+    FILE *data;
 
-    clock_t start, end;
-    double cpu_time_used;
+    //Abre o arquivo database.dat para leitura, e verifica se o arquivo pode ser aberto
+    data = fopen("../database.dat", "r");
+    if (data == NULL) {
+        printf("Erro! Arquivo não pode ser aberto\n");
+        return -1;
+    }
 
-
-        //Abre o arquivo database.dat para leitura, e verifica se o arquivo pode ser aberto
-        data = fopen("../database.dat", "r");
-        if (data == NULL) {
-            printf("Erro! Arquivo não pode ser aberto\n");
-            return -1;
-        }
-
-        //Lê o arquivo e armazena na struct User
-        for (int i = 0; i < N; ++i) {
-            fscanf(data, "%10c", User[i].login);
-            fscanf(data, "%10c", User[i].senha);
-            fscanf(data, "%30c", User[i].nome);
-        }
+    //Lê o arquivo e armazena na struct User
+    for (int i = 0; i < N; ++i) {
+        fscanf(data, "%10c", User[i].login);
+        fscanf(data, "%10c", User[i].senha);
+        fscanf(data, "%30c", User[i].nome);
+    }
 
     while(1) {
         int j=0;
